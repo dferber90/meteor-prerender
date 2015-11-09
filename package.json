@@ -1,6 +1,6 @@
 {
   "name": "prerender",
-  "description": "Prerender",
+  "description": "Meteor wrapper for Prerender",
   "private": true,
   "scripts": {
     "lint": "eslint .",

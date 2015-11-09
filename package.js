@@ -4,22 +4,20 @@
 */
 
 Package.describe({
-  name: 'dfischer:prerenderio',
-  summary: 'Node wrapper for prerenderio',
+  name: 'dferber:prerender',
+  summary: 'Node wrapper for prerender',
   version: '2.1.0_1',
-  git: 'https://github.com/dfischer/meteor-prerenderio',
+  git: 'https://github.com/dferber90/meteor-prerender',
 });
 
 Npm.depends({
   'prerender-node': '2.1.0',
 });
 
-
 Package.onUse(function packageConfiguration(api) {
-  api.use('ecmascript');
   api.use(['templating'], 'client');
   api.use(['webapp'], 'server');
   api.versionsFrom('METEOR@0.9.1.1');
-  api.addFiles('dfischer:prerenderio.js', 'server');
-  api.addFiles('dfischer:prerender.html', 'client');
+  api.addFiles('dferber:prerenderio.js', 'server');
+  api.addFiles('dferber:prerender.html', 'client');
 });

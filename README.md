@@ -1,8 +1,12 @@
-Prerender
-==================
+# Prerender
 
 SEO for Meteor Apps.
-A Meteor wrapper for [https://prerender.io/](https://prerender.io/).
+A Meteor wrapper for [https://prerender.io/][prerender-io].
+
+[![Build Status](https://travis-ci.org/dferber90/meteor-prerender.svg)](https://travis-ci.org/dferber90/meteor-prerender)
+
+
+## Setup
 
 In your settings.json file include:
 
@@ -21,13 +25,13 @@ The `prerenderServiceURL` is optional and only used to test the Prerender server
 Leave it out in your production configuration.
 
 
-## Testing locally
+## Testing and Verifying
 There are two options to test whether Prerender is working or not.
 
 ### Locally (recommended)
 
 1. Set the `prerenderServiceUrl` to `http://localhost:3033/`.
-2. Download the [open source Prerender server(https://prerender.io/documentation/test-it) to another directory
+2. Download the [open source Prerender server](https://prerender.io/documentation/test-it) to another directory
 3. Run the Prerender server with a custom port locally (because 3000 is taken by your Meteor app), with `$ export PORT=3033; node server.js`
 4. Visit any URL of your application and append `?_escaped_fragment_=`, e.g. [http://localhost:3000/?_escaped_fragment_=](http://localhost:3000/?_escaped_fragment_=)
 
@@ -39,9 +43,9 @@ You can view logs in the running prerender server which is quite helpful.
 
 1. Set the `prerenderServiceUrl` to `http://service.prerender.io/`.
 2. Visit any URL of your application and append `?_escaped_fragment_=`, e.g. [http://localhost:3000/?_escaped_fragment_=](http://localhost:3000/?_escaped_fragment_=)
-3. See what is reported to Prerender at [https://prerender.io/](https://prerender.io/),
+3. See what is reported to Prerender at [https://prerender.io/][prerender-io],
 
-For more options, take a look at the [prerender-node package](https://github.com/prerender/prerender-node).
+For more options, take a look at the [prerender-node package][prerender-node].
 
 
 ## Delaying the rendering
@@ -63,8 +67,23 @@ Error: connect ECONNREFUSED
 ```
 If you get this error, you probably forgot to run your local Prerender server.
 
+## Prior Art
+The [initial version](https://github.com/dfischer/meteor-prerenderio) by [@dfischer][dfischer] uses the outdated [prerender-node module][prerender-node]. This package uses the latest version, allowing it to work without all the boilerplate.
+
+This package further uses Meteors extension of Semantic Versioning, which keeps the released version consistent with that of the prerender-node npm module.
+
+Switching from the previous package to this one is as easy as
+
+```
+$ meteor remove dfischer:prerenderio
+$ meteor add dferber:prerender
+```
 
 ## Contributions
 
-Thanks to [@electricjesus](https://github.com/electricjesus) and [@dfischer](https://github.com/dfischer) for the [initial version](https://github.com/dfischer/meteor-prerenderio).
-Easy integration of the npm module thanks to [@arunoda](https://github.com/arunoda).
+Thanks to [@electricjesus](https://github.com/electricjesus) and [@dfischer][dfischer] for the [initial version](https://github.com/dfischer/meteor-prerenderio).
+Thanks to [@arunoda](https://github.com/arunoda) for simplifying [prerender-node][prerender-node].
+
+[prerender-node]: https://github.com/prerender/prerender-node
+[prerender-io]: https://prerender.io/
+[dfischer]: https://github.com/dfischer
