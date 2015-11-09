@@ -18,6 +18,6 @@ Package.onUse(function packageConfiguration(api) {
   api.use(['templating'], 'client');
   api.use(['webapp'], 'server');
   api.versionsFrom('METEOR@0.9.1.1');
-  api.addFiles('dferber:prerenderio.js', 'server');
-  api.addFiles('dferber:prerender.html', 'client');
+  api.addFiles('server/prerender.js', 'server');
+  api.addFiles('client/prerender.html', 'client');
 });
