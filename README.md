@@ -8,6 +8,12 @@ A Meteor wrapper for [https://prerender.io/][prerender-io].
 
 ## Setup
 
+Install with
+
+```
+$ meteor add dferber:prerender
+```
+
 In your settings.json file include:
 
 `settings.json`
@@ -72,7 +78,7 @@ The [initial version](https://github.com/dfischer/meteor-prerenderio) by [@dfisc
 
 This package further uses Meteors extension of Semantic Versioning, which keeps the released version consistent with that of the prerender-node npm module.
 
-Switching from the previous package to this one is as easy as
+As the configuration can be reused switching from the previous package to this one is as easy as
 
 ```
 $ meteor remove dfischer:prerenderio
