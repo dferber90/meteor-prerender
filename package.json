@@ -1,0 +1,26 @@
+{
+  "name": "prerender",
+  "description": "Prerender",
+  "private": true,
+  "scripts": {
+    "lint": "eslint .",
+    "test": "npm run lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dferber90/meteor-prerender.git"
+  },
+  "author": "Dominik Ferber <dominik.ferber+npm@gmail.com> (http://dferber.de/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dferber90/meteor-prerender/issues"
+  },
+  "homepage": "https://github.com/dferber90/meteor-prerender#readme",
+  "dependencies": {
+    "eslint": "1.9.0",
+    "eslint-plugin-meteor": "1.7.0"
+  },
+  "devDependencies": {
+    "eslint-config-airbnb": "1.0.0"
+  }
+}

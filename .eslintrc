@@ -1,0 +1,13 @@
+---
+  env:
+    browser: true
+    node: true
+
+  extends:
+    - airbnb/legacy
+
+  plugins:
+    - meteor
+
+  rules:
+    meteor/globals: 2
