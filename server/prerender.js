@@ -16,4 +16,11 @@ if (
   }
 }
 
+prerenderio.set('afterRender', function afterRender(error) {
+  if (error) {
+    console.log('prerenderio error', error); // eslint-disable-line no-console
+    return;
+  }
+});
+
 WebApp.rawConnectHandlers.use(prerenderio);
