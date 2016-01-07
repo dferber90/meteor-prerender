@@ -21,6 +21,6 @@
     "eslint-plugin-meteor": "1.7.0"
   },
   "devDependencies": {
-    "eslint-config-airbnb": "2.1.1"
+    "eslint-config-airbnb": "3.0.2"
   }
 }
