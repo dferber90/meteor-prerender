@@ -30,6 +30,7 @@ In your settings.json file include:
 The `prerenderServiceURL` is optional and only used to test the Prerender server locally.
 Leave it out in your production configuration.
 
+NOTICE: You may also provide the above credentials using evironment variables, namely `PRERENDERIO_TOKEN` and `PRERENDERIO_SERVICE_URL`.
 
 ## Testing and Verifying
 There are two options to test whether Prerender is working or not.

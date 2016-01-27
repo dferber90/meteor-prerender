@@ -1,20 +1,20 @@
 /* eslint-meteor-env server */
 
 var prerenderio = Npm.require('prerender-node');
-var prerenderToken;
-var prerenderServiceUrl;
 
-if (
-  typeof(Meteor.settings.PrerenderIO) === 'object' &&
-  Meteor.settings.PrerenderIO.token
-) {
-  prerenderToken = Meteor.settings.PrerenderIO.token;
-  prerenderio.set('prerenderToken', prerenderToken);
-  if (Meteor.settings.PrerenderIO.prerenderServiceUrl) {
-    prerenderServiceUrl = Meteor.settings.PrerenderIO.prerenderServiceUrl;
-    prerenderio.set('prerenderServiceUrl', prerenderServiceUrl);
-  }
-}
+(function() {
+  // token
+  var prerenderToken = Meteor.settings.PrerenderIO && Meteor.settings.PrerenderIO.token;
+  prerenderToken = prerenderToken || process.env.PRERENDERIO_TOKEN; // Fallback to environment variable
+  if (prerenderToken) prerenderio.set('prerenderToken', prerenderToken);
+
+  // service url
+  var prerenderServiceUrl = Meteor.settings.PrerenderIO && Meteor.settings.PrerenderIO.prerenderServiceUrl;
+  prerenderServiceUrl = prerenderServiceUrl || process.env.PRERENDERIO_SERVICE_URL; // Fallback to environment variable
+  if (prerenderServiceUrl) prerenderio.set('prerenderServiceUrl', prerenderServiceUrl);
+
+  console.log("Setting up Prerender.io at " + prerenderServiceUrl  + " with token " + prerenderToken);
+})();
 
 prerenderio.set('afterRender', function afterRender(error) {
   if (error) {
