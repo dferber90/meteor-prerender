@@ -1,20 +1,18 @@
 var prerenderio = Npm.require('prerender-node');
-var prerenderToken;
-var prerenderServiceUrl;
-var prerenderSettings = Meteor.settings.PrerenderIO;
+var token;
+var serviceUrl;
+var settings = Meteor.settings.PrerenderIO;
 
 // token
-prerenderToken = prerenderSettings && prerenderSettings.token;
-prerenderToken = process.env.PRERENDERIO_TOKEN || prerenderToken;
+token = process.env.PRERENDERIO_TOKEN || (settings && settings.token);
 
 // service url (support `prerenderServiceUrl` (for historical reasons) and `serviceUrl`)
-prerenderServiceUrl = prerenderSettings &&
-  (prerenderSettings.prerenderServiceUrl || prerenderSettings.serviceUrl);
-prerenderServiceUrl = process.env.PRERENDERIO_SERVICE_URL || prerenderServiceUrl;
+serviceUrl = settings && (settings.prerenderServiceUrl || settings.serviceUrl);
+serviceUrl = process.env.PRERENDERIO_SERVICE_URL || serviceUrl;
 
-if (prerenderToken) {
-  if (prerenderServiceUrl) prerenderio.set('prerenderServiceUrl', prerenderServiceUrl);
-  prerenderio.set('prerenderToken', prerenderToken);
+if (token) {
+  if (serviceUrl) prerenderio.set('prerenderServiceUrl', serviceUrl);
+  prerenderio.set('prerenderToken', token);
 
   prerenderio.set('afterRender', function afterRender(error) {
     if (error) {
