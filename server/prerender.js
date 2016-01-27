@@ -1,20 +1,22 @@
 /* eslint-meteor-env server */
 
 var prerenderio = Npm.require('prerender-node');
+var prerenderToken;
+var prerenderServiceUrl;
 
-(function() {
-  // token
-  var prerenderToken = Meteor.settings.PrerenderIO && Meteor.settings.PrerenderIO.token;
-  prerenderToken = prerenderToken || process.env.PRERENDERIO_TOKEN; // Fallback to environment variable
-  if (prerenderToken) prerenderio.set('prerenderToken', prerenderToken);
+// token
+prerenderToken =
+  Meteor.settings.PrerenderIO &&
+  Meteor.settings.PrerenderIO.token;
+prerenderToken = prerenderToken || process.env.PRERENDERIO_TOKEN;
+if (prerenderToken) prerenderio.set('prerenderToken', prerenderToken);
 
-  // service url
-  var prerenderServiceUrl = Meteor.settings.PrerenderIO && Meteor.settings.PrerenderIO.prerenderServiceUrl;
-  prerenderServiceUrl = prerenderServiceUrl || process.env.PRERENDERIO_SERVICE_URL; // Fallback to environment variable
-  if (prerenderServiceUrl) prerenderio.set('prerenderServiceUrl', prerenderServiceUrl);
-
-  console.log("Setting up Prerender.io at " + prerenderServiceUrl  + " with token " + prerenderToken);
-})();
+// service url
+prerenderServiceUrl =
+  Meteor.settings.PrerenderIO &&
+  Meteor.settings.PrerenderIO.prerenderServiceUrl;
+prerenderServiceUrl = prerenderServiceUrl || process.env.PRERENDERIO_SERVICE_URL;
+if (prerenderServiceUrl) prerenderio.set('prerenderServiceUrl', prerenderServiceUrl);
 
 prerenderio.set('afterRender', function afterRender(error) {
   if (error) {
