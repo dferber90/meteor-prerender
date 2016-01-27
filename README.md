@@ -5,6 +5,15 @@ A Meteor wrapper for [https://prerender.io/][prerender-io].
 
 [![Build Status](https://travis-ci.org/dferber90/meteor-prerender.svg)](https://travis-ci.org/dferber90/meteor-prerender)
 
+## Intention
+This package is a reference on how to enable Prerender in pre-1.3 Meteor applications. If you need anything more sophisticated, create an inlined package in your project. It's just a few lines of code.
+
+## Usage with Meteor 1.3
+Meteor 1.3 supports inclusion of npm modules out of the box.
+If you use Meteor 1.3, use the `prerender-node` npm module directly.
+You don't need this package at all in this case.
+
+---
 
 ## Setup
 
