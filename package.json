@@ -17,10 +17,9 @@
   },
   "homepage": "https://github.com/dferber90/meteor-prerender#readme",
   "dependencies": {
-    "eslint": "1.9.0",
-    "eslint-plugin-meteor": "1.7.0"
+    "eslint": "1.10.3"
   },
   "devDependencies": {
-    "eslint-config-airbnb": "3.0.2"
+    "eslint-config-airbnb": "4.0.0"
   }
 }

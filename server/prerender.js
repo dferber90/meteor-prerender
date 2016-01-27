@@ -1,5 +1,3 @@
-/* eslint-meteor-env server */
-
 var prerenderio = Npm.require('prerender-node');
 var prerenderToken;
 var prerenderServiceUrl;

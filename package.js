@@ -1,8 +1,3 @@
-/* global
-  Package: false
-  Npm: false
-*/
-
 Package.describe({
   name: 'dferber:prerender',
   summary: 'Node wrapper for prerender',
