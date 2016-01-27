@@ -1,7 +1,7 @@
 Package.describe({
   name: 'dferber:prerender',
   summary: 'Node wrapper for prerender',
-  version: '2.2.0_0',
+  version: '2.2.0_1',
   git: 'https://github.com/dferber90/meteor-prerender',
 });
 
