@@ -1,24 +1,25 @@
 var prerenderio = Npm.require('prerender-node');
-var prerenderToken;
-var prerenderServiceUrl;
+var token;
+var serviceUrl;
+var prerenderSettings = Meteor.settings.PrerenderIO;
 
-if (
-  typeof(Meteor.settings.PrerenderIO) === 'object' &&
-  Meteor.settings.PrerenderIO.token
-) {
-  prerenderToken = Meteor.settings.PrerenderIO.token;
-  prerenderio.set('prerenderToken', prerenderToken);
-  if (Meteor.settings.PrerenderIO.prerenderServiceUrl) {
-    prerenderServiceUrl = Meteor.settings.PrerenderIO.prerenderServiceUrl;
-    prerenderio.set('prerenderServiceUrl', prerenderServiceUrl);
-  }
+if (typeof prerenderSettings === 'object') {
+  token = prerenderSettings.token;
+
+  // support `prerenderServiceUrl` (for historical reasons) and `serviceUrl`
+  serviceUrl = prerenderSettings.prerenderServiceUrl || prerenderSettings.serviceUrl;
 }
 
-prerenderio.set('afterRender', function afterRender(error) {
-  if (error) {
-    console.log('prerenderio error', error); // eslint-disable-line no-console
-    return;
-  }
-});
+if (token) {
+  if (serviceUrl) prerenderio.set('prerenderServiceUrl', serviceUrl);
+  prerenderio.set('prerenderToken', token);
 
-WebApp.rawConnectHandlers.use(prerenderio);
+  prerenderio.set('afterRender', function afterRender(error) {
+    if (error) {
+      console.log('prerenderio error', error); // eslint-disable-line no-console
+      return;
+    }
+  });
+
+  WebApp.rawConnectHandlers.use(prerenderio);
+}
