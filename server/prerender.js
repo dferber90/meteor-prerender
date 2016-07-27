@@ -12,8 +12,10 @@ token = process.env.PRERENDERIO_TOKEN || (settings && settings.token);
 serviceUrl = settings && (settings.prerenderServiceUrl || settings.serviceUrl);
 serviceUrl = process.env.PRERENDERIO_SERVICE_URL || serviceUrl;
 
-// protocol
-protocol = process.env.PRERENDERIO_PROTOCOL || (settings && settings.protocol);
+
+if(protocol) {
+  prerenderio.set('prerenderProtocol', protocol);
+}
 
 if (token) {
   if (serviceUrl) prerenderio.set('prerenderServiceUrl', serviceUrl);
