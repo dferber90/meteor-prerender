@@ -13,14 +13,10 @@ serviceUrl = settings && (settings.prerenderServiceUrl || settings.serviceUrl);
 serviceUrl = process.env.PRERENDERIO_SERVICE_URL || serviceUrl;
 
 
-if(protocol) {
-  prerenderio.set('prerenderProtocol', protocol);
-}
-
 if (token) {
   if (serviceUrl) prerenderio.set('prerenderServiceUrl', serviceUrl);
   prerenderio.set('prerenderToken', token);
-  prerenderio.set('prerenderProtocol', protocol);
+  if (protocol) prerenderio.set('prerenderProtocol', protocol);
 
   prerenderio.set('afterRender', function afterRender(error) {
     if (error) {
