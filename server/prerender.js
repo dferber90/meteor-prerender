@@ -4,9 +4,9 @@ var serviceUrl;
 var protocol;
 var settings = Meteor.settings.PrerenderIO;
 
-// token
-token = process.env.PRERENDERIO_TOKEN || (settings && settings.token);
 
+token = process.env.PRERENDERIO_TOKEN || (settings && settings.token);
+protocol = process.env.PRERENDERIO_PROTOCOL || (settings && settings.protocol);
 
 // service url (support `prerenderServiceUrl` (for historical reasons) and `serviceUrl`)
 serviceUrl = settings && (settings.prerenderServiceUrl || settings.serviceUrl);
