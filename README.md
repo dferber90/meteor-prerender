@@ -1,3 +1,9 @@
+ > ⚠️ **This package is unmaintained!**
+ > 
+ > *The Meteor Development Group has taken over maintaining this package. Use [`mdg:seo`](https://atmospherejs.com/mdg/seo) instead.*
+ >
+ > *The issues of this repository are closed! Please file new issues at its new home in [`meteor/galaxy-seo-package`](https://github.com/meteor/galaxy-seo-package/)*.
+
 # Prerender
 
 SEO for Meteor Apps.
